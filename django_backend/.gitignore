@@ -14,7 +14,6 @@ db.sqlite3-journal
 
 # If you are using Django migrations
 *.pyc
-migrations/
 
 # Media files (if generated locally)
 media/
