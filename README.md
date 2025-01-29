@@ -1,4 +1,4 @@
-# gym-app
+# cv-generator-node-next
 
 This app is built using Python Django (frontend not implemented yet).
 
