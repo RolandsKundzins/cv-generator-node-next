@@ -1,0 +1,45 @@
+# Node.js dependencies
+/node_modules/
+
+# Build output (for TypeScript, if applicable)
+/dist/
+/build/
+
+# Optional: Yarn lock file (if using Yarn)
+/yarn.lock
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.*.local
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# TypeScript compiled files
+*.tsbuildinfo
+
+# IDE/Editor specific files
+.vscode/
+.idea/
+*.sublime-workspace
+
+# NPM global modules
+.npm/
+
+# Coverage directory for testing tools (like Jest)
+coverage/
+
+# TypeScript declaration files
+*.d.ts
+
+# Testing
+*.test.ts
+*.spec.ts
