@@ -1,19 +1,28 @@
 import { Router, Request, Response } from 'express';
-import { Kysely, SqliteDialect } from 'kysely';
-import { Database } from '../types.js';
+import { Kysely, PostgresDialect } from 'kysely';
+import { Pool } from 'pg';
+import { DB } from 'kysely-codegen';
 
 // Create a new Router
 const router = Router();
 
-const db = new Kysely<Database>({
-  dialect: new SqliteDialect({
-    database: './mydb.sqlite',
-  }),
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
+
+const dialect = new PostgresDialect({
+  pool,
+});
+
+export const db = new Kysely<DB>({
+  dialect,
 });
 
 // Define the root route
-router.get('/', (_: Request, res: Response) => {
+router.get('/', async (_: Request, res: Response) => {
   res.send('Hello, TypeScript with Express!');
+  //   const users = await db.selectFrom('user').selectAll().execute();
+  //   console.log(users);
 });
 
 // Define the "/api/greet" route

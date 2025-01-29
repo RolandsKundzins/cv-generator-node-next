@@ -41,3 +41,4 @@ This app is built using Python Django (frontend not implemented yet).
 ## Kysely
 
 - For querying the database we use Kysely, which is a simple and lightweight query builder for PostgreSQL. It is a lot more flexible than Prisma, and allows us to write complex queries with ease.
+- Type are generated using kysely-codegen right from the database (not prisma schema)
