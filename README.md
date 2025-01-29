@@ -27,3 +27,17 @@ This app is built using Python Django (frontend not implemented yet).
   ```bash
   npm run format
   ```
+
+## Prisma
+
+- Prisma is used for database schemas and migrations. It is NOT used for querying the database, as it gets quite limiting when the queries get more complex.
+- Some notes from Prisma:
+  1. Set the DATABASE_URL in the .env file to point to your existing database. If your database has no tables yet, read https://pris.ly/d/getting-started
+  2. Set the provider of the datasource block in schema.prisma to match your database: postgresql, mysql, sqlite, sqlserver, mongodb or cockroachdb.
+  3. Run prisma db pull to turn your database schema into a Prisma schema.
+  4. Run prisma generate to generate the Prisma Client. You can then start querying your database.
+  5. Tip: Explore how you can extend the ORM with scalable connection pooling, global caching, and real-time database events. Read: https://pris.ly/cli/beyond-orm
+
+## Kysely
+
+- For querying the database we use Kysely, which is a simple and lightweight query builder for PostgreSQL. It is a lot more flexible than Prisma, and allows us to write complex queries with ease.
