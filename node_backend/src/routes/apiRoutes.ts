@@ -1,12 +1,12 @@
 import { Router, Request, Response } from 'express';
 import { Kysely, PostgresDialect } from 'kysely';
-import { Pool } from 'pg';
+import pg from 'pg';
 import { DB } from 'kysely-codegen';
 
 // Create a new Router
 const router = Router();
 
-const pool = new Pool({
+const pool = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
