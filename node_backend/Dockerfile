@@ -10,8 +10,8 @@ COPY ./node_backend/package*.json ./
 # Install dependencies (including dev dependencies)
 RUN npm install
 
-# Copy the rest of the application code
-COPY ./node_backend .
+# Copy the rest of the application code (not needed for development as it is mounted)
+# COPY ./node_backend .
 
 # Expose the port your app will run on
 EXPOSE 3000

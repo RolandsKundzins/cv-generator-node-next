@@ -10,10 +10,13 @@ services:
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/mydb?schema=public
       - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true # Required for live reload in Windows
     ports:
       - "3000:3000" # Expose the backend on port 3000
     volumes:
       - ./node_backend:/app # Mount the local backend code into the container (for live reload in dev)
+      - /app/node_modules
+
     depends_on:
       - postgres # Ensure that PostgreSQL starts first
 

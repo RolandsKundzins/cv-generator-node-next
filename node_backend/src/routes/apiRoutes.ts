@@ -20,7 +20,8 @@ export const db = new Kysely<DB>({
 
 // Define the root route
 router.get('/', async (_: Request, res: Response) => {
-  res.send('Hello, TypeScript with Express!');
+  res.send('Hello, TypeScript with Express new changes!');
+  //   res.send('Hello');
   //   const users = await db.selectFrom('user').selectAll().execute();
   //   console.log(users);
 });

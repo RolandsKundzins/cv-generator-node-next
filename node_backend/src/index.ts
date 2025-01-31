@@ -14,7 +14,7 @@ app.use(apiRoutes); // This will handle all your routes
 const port = process.env.PORT;
 
 if (port === undefined) {
-  console.error('PORT environment variable is not set in the .env file.');
+  console.error('PORT environment variable is not set in the .env file..');
   process.exit(1); // Exit the process with an error if the PORT is undefined
 }
 

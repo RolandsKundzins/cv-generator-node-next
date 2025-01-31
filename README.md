@@ -4,9 +4,17 @@ This app is built using Python Django (frontend not implemented yet).
 
 ## To start the project
 
-- start dev server:
+- run docker
   ```
-  npm run dev
+  docker compose up --build
+  ```
+
+## Docker
+
+- Docker is used to start the project
+- To free up space from unused (dangling) images and containers, run the following command:
+  ```bash
+  docker builder prune -a -f
   ```
 
 ## ESLint
