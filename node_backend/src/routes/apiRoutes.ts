@@ -4,7 +4,7 @@ import pg from 'pg';
 import { DB } from 'kysely-codegen';
 
 // Create a new Router
-const router = Router();
+const router: Router = Router();
 
 const pool = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
@@ -20,7 +20,7 @@ export const db = new Kysely<DB>({
 
 // Define the root route
 router.get('/', async (_: Request, res: Response) => {
-  res.send('Hello, TypeScript with Express new changes!');
+  res.send('Hello, TypeScript with Express new changes!!!');
   //   res.send('Hello');
   //   const users = await db.selectFrom('user').selectAll().execute();
   //   console.log(users);

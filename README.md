@@ -12,10 +12,13 @@ This app is built using Python Django (frontend not implemented yet).
 ## Docker
 
 - Docker is used to start the project
-- To free up space from unused (dangling) images and containers, run the following command:
+- To free up space from unused (dangling) images and containers, run the following command (CAREFUL, this will remove all unused images and containers):
   ```bash
-  docker builder prune -a -f
+    docker image prune -f        # Removes dangling images (unused images not referenced by any container)
+    docker container prune -f    # Removes stopped containers
+    docker builder prune -f      # Removes build cache (layers, intermediate images, etc.)
   ```
+- Some issues like "CANCELLED" might occure do to low disk space, so make sure to free up some space
 
 ## ESLint
 

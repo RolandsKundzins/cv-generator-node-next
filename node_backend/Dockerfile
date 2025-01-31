@@ -4,11 +4,14 @@ FROM node:latest
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json to install dependencies
-COPY ./node_backend/package*.json ./
+# Install pnpm globally
+RUN corepack enable && corepack prepare pnpm@latest --activate
 
-# Install dependencies (including dev dependencies)
-RUN npm install
+# Copy package.json and pnpm-lock.yaml to install dependencies
+COPY ./node_backend/package.json ./node_backend/pnpm-lock.yaml ./
+
+# Install dependencies using pnpm
+RUN pnpm install --frozen-lockfile
 
 # Copy the rest of the application code (not needed for development as it is mounted)
 # COPY ./node_backend .
@@ -17,4 +20,4 @@ RUN npm install
 EXPOSE 3000
 
 # Command to run the app
-CMD ["npm", "run", "dev"]
+CMD ["pnpm", "run", "dev"]
