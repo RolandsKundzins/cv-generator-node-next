@@ -4,6 +4,8 @@ FROM node:latest
 # Set the working directory in the container
 WORKDIR /app
 
+RUN npm install npm@latest
+
 # Install pnpm globally
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
@@ -16,8 +18,11 @@ RUN pnpm install --frozen-lockfile
 # Copy the rest of the application code (not needed for development as it is mounted)
 # COPY ./node_backend .
 
+COPY node_backend/prisma ./prisma
+COPY node_backend/.env .env
+
 # Expose the port your app will run on
 EXPOSE 3000
 
 # Command to run the app
-CMD ["pnpm", "run", "dev"]
+# CMD ["pnpm", "run", "dev"]
