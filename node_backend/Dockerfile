@@ -19,7 +19,7 @@ RUN pnpm install --frozen-lockfile
 # COPY ./node_backend .
 
 COPY node_backend/prisma ./prisma
-COPY node_backend/.env .env
+# COPY node_backend/.env .env
 
 # Expose the port your app will run on
 EXPOSE 3000

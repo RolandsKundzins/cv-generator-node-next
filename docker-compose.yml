@@ -1,40 +1,28 @@
 services:
-  # Node.js Backend Service
   node_backend:
     build:
-      context: . # Build the Dockerfile in the current directory (root)
+      context: .
       dockerfile: node_backend/Dockerfile
     container_name: node_backend
-    environment:
-      # - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/mydb?schema=public
-      # - NODE_ENV=development
-      - CHOKIDAR_USEPOLLING=true # Required for live reload in Windows
+    env_file:
+      - ./node_backend/.env
     ports:
-      - "${PORT}:${PORT}" # Expose the backend on port 3000
+      - 3000:3000
     volumes:
       - ./node_backend:/app # Mount the local backend code into the container (for live reload in dev)
       - /app/node_modules
     command: >
-      sh -c "pnpm run db:1migrate_create &&
-            pnpm run db:2migrate_apply &&
+      sh -c "pnpm run db:2migrate_apply &&
             pnpm run db:3typegen &&
             pnpm run dev"
-    env_file:
-      - ./node_backend/.env # Explicitly tell Docker Compose to load the .env file
     depends_on:
       - postgres # Ensure that PostgreSQL starts first
 
-  # PostgreSQL Service
   postgres:
     image: postgres:17.2
     container_name: postgres
-    environment:
-      # - POSTGRES_USER=${POSTGRES_USER} # Uses value from .env
-      # - POSTGRES_PASSWORD=${POSTGRES_PASSWORD} # Uses value from .env
-      # - POSTGRES_DB=${POSTGRES_DB} # Uses value from .env
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: mydb
+    env_file:
+      - ./node_backend/.env
     ports:
       - "5432:5432" # Expose PostgreSQL on port 5432
     volumes:

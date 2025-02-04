@@ -42,12 +42,18 @@ This app is built using Python Django (frontend not implemented yet).
 ## Prisma
 
 - Prisma is used for database schemas and migrations. It is NOT used for querying the database, as it gets quite limiting when the queries get more complex.
-- Some notes from Prisma:
-  1. Set the DATABASE_URL in the .env file to point to your existing database. If your database has no tables yet, read https://pris.ly/d/getting-started
-  2. Set the provider of the datasource block in schema.prisma to match your database: postgresql, mysql, sqlite, sqlserver, mongodb or cockroachdb.
-  3. Run prisma db pull to turn your database schema into a Prisma schema.
-  4. Run prisma generate to generate the Prisma Client. You can then start querying your database.
-  5. Tip: Explore how you can extend the ORM with scalable connection pooling, global caching, and real-time database events. Read: https://pris.ly/cli/beyond-orm
+
+### Migrations
+
+- When you make a change in schema.prisma (new table/column etc.), you need to generate a migration and apply it to the database. This can be done with the following commands:
+
+  ```bash
+    pnpm run db:1migrate_create # creates the migration files in node_backend/prisma/migrations. Check before applying.
+
+    docker compose up --build # This includes commands for applying migrations to the database in docker
+
+    pnpm run db:3typegen # Generates typescript types for the kysely database schema
+  ```
 
 ## Kysely
 
