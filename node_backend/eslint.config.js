@@ -1,26 +1,34 @@
+// eslint.config.js
+import js from '@eslint/js';
 import globals from 'globals';
-import pluginJs from '@eslint/js';
-import tseslint from 'typescript-eslint';
-import eslintConfigPrettier from 'eslint-config-prettier'; // Import Prettier config
+import tsParser from '@typescript-eslint/parser';
+import typescriptEslint from '@typescript-eslint/eslint-plugin';
+import eslintConfigPrettier from 'eslint-config-prettier';
 
-/** @type {import('eslint').Linter.Config[]} */
 export default [
+  // Ensure Node globals are defined
   {
-    files: ['**/*.{js,mjs,cjs,ts}'], // Apply rules to JS and TS files
     languageOptions: {
-      globals: globals.browser, // Use browser globals if necessary
-    },
-    plugins: [
-      'prettier', // Add Prettier plugin
-    ],
-    extends: [
-      pluginJs.configs.recommended, // Include ESLint's recommended JS rules
-      ...tseslint.configs.recommended, // Include TypeScript ESLint rules
-      'plugin:prettier/recommended', // Integrate Prettier with ESLint
-      eslintConfigPrettier, // Disables ESLint rules that conflict with Prettier
-    ],
-    rules: {
-      'prettier/prettier': 'error', // Treat Prettier formatting issues as errors
+      globals: {
+        ...globals.node, // This makes process, console, etc. available as read-only globals
+      },
     },
   },
+  js.configs.recommended, // built-in rules that ESLint recommends
+  {
+    files: ['**/*.ts', '**/*.tsx'],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: { sourceType: 'module' },
+    },
+    plugins: {
+      '@typescript-eslint': typescriptEslint,
+    },
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'warn',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-shadow': 'warn',
+    },
+  },
+  eslintConfigPrettier,
 ];
