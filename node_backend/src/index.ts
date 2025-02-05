@@ -10,7 +10,6 @@ const app = express();
 // Use the imported routes
 app.use(apiRoutes); // This will handle all your routes
 
-console.log(`database_url: ${process.env.DATABASE_URL}`);
 // Get port from the environment variable
 const port = process.env.PORT;
 

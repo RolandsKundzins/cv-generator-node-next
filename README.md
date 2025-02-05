@@ -4,6 +4,11 @@ This app is built using Python Django (frontend not implemented yet).
 
 ## To start the project
 
+- clone the repository
+- install dependencies
+  ```bash
+  pnpm install
+  ```
 - run docker
   ```
   docker compose up --build
