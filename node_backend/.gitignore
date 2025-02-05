@@ -39,7 +39,3 @@ coverage/
 
 # TypeScript declaration files
 *.d.ts
-
-# Testing
-*.test.ts
-*.spec.ts
