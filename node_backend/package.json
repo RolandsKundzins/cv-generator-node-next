@@ -2,7 +2,7 @@
   "name": "node_backend",
   "main": "index.js",
   "scripts": {
-    "test": "node --test",
+    "test": "vitest",
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
@@ -41,7 +41,8 @@
     "prettier": "^3.4.2",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.22.0"
+    "typescript-eslint": "^8.22.0",
+    "vitest": "^3.0.5"
   },
   "kysely": {
     "output": "./src/types/kysely.d.ts"

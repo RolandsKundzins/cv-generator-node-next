@@ -1,5 +1,5 @@
 # Node.js dependencies
-/node_modules/
+node_modules
 
 # Build output (for TypeScript, if applicable)
 /dist/
@@ -39,3 +39,26 @@ coverage/
 
 # TypeScript declaration files
 *.d.ts
+
+
+# Next.js
+/nextjs_frontend/.next/
+/nextjs_frontend/out/
+/nextjs_frontend/build
+
+# Misc
+/nextjs_frontend/.DS_Store
+/nextjs_frontend/*.pem
+
+# Debug
+/nextjs_frontend/npm-debug.log*
+/nextjs_frontend/yarn-debug.log*
+/nextjs_frontend/yarn-error.log*
+/nextjs_frontend.pnpm-debug.log*
+
+# Vercel
+/nextjs_frontend/.vercel
+
+# TypeScript
+/nextjs_frontend/*.tsbuildinfo
+/nextjs_frontend/next-env.d.ts

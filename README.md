@@ -64,3 +64,9 @@ This app is built using Python Django (frontend not implemented yet).
 
 - For querying the database we use Kysely, which is a simple and lightweight query builder for PostgreSQL. It is a lot more flexible than Prisma, and allows us to write complex queries with ease.
 - Type are generated using kysely-codegen right from the database (not prisma schema)
+
+## Vitest
+
+- Vitest is used for automated testing
+- Install vscode extension "Vitest" and see vscode testing tab
+- To run tests in terminal use "pnpm test"
