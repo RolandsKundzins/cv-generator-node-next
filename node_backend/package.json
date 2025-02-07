@@ -8,9 +8,9 @@
     "start": "node dist/index.js",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "db:1migrate_create": "npx prisma migrate dev --create-only",
-    "db:2migrate_apply": "npx prisma migrate dev --skip-generate",
-    "db:3typegen": "npx kysely-codegen --dialect postgres"
+    "db:1migrate_create": "prisma migrate dev --create-only",
+    "db:2migrate_apply": "prisma migrate dev --skip-generate",
+    "db:3typegen": "kysely-codegen --dialect postgres"
   },
   "keywords": [],
   "author": "",
