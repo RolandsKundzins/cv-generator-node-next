@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Docker Compose
-        run: docker compose -f docker-compose.autotest.yml up --build
+        run: docker compose -f docker-compose.autotest.yml up -d --build
 
       - name: Stop Docker Containers
         run: docker compose down -v
