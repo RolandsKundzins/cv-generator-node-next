@@ -2,15 +2,15 @@
   "name": "node_backend",
   "main": "index.js",
   "scripts": {
-    "test": "vitest",
-    "dev": "tsx watch --inspect=0.0.0.0:9229 src/index.ts",
+    "test": "vitest run",
+    "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "db:1migrate_create": "npx prisma migrate dev --create-only",
-    "db:2migrate_apply": "npx prisma migrate dev --skip-generate",
-    "db:3typegen": "npx kysely-codegen --dialect postgres"
+    "db:1migrate_create": "prisma migrate dev --create-only",
+    "db:2migrate_apply": "prisma migrate dev --skip-generate",
+    "db:3typegen": "kysely-codegen --dialect postgres"
   },
   "keywords": [],
   "author": "",
@@ -19,20 +19,20 @@
   "description": "",
   "packageManager": "pnpm@9.15.4",
   "dependencies": {
-    "@prisma/client": "^6.3.0",
+    "@prisma/client": "^6.3.1",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "kysely": "^0.27.5",
     "pg": "^8.13.1",
-    "prisma": "^6.3.0"
+    "prisma": "^6.3.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
     "@types/express": "^5.0.0",
-    "@types/node": "^22.12.0",
+    "@types/node": "^22.13.1",
     "@types/pg": "^8.11.11",
-    "@typescript-eslint/eslint-plugin": "^8.22.0",
-    "@typescript-eslint/parser": "^8.22.0",
+    "@typescript-eslint/eslint-plugin": "^8.23.0",
+    "@typescript-eslint/parser": "^8.23.0",
     "eslint": "^9.19.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
@@ -41,7 +41,7 @@
     "prettier": "^3.4.2",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.22.0",
+    "typescript-eslint": "^8.23.0",
     "vitest": "^3.0.5"
   },
   "kysely": {
