@@ -14,6 +14,15 @@ This app is built using Python Django (frontend not implemented yet).
   docker compose up --build
   ```
 
+## To use vscode debugger
+
+- run docker compose
+- add some breakpoints - preferably api route code
+- open "run and debug" (ctrl+shift+d)
+- start "Attach to node_backend"
+- make request and see debugger reach the breakpoint
+- afterwards you can either continue (f5) or go step by step and see variables that are set
+
 ## Docker
 
 - Docker is used to start the project
