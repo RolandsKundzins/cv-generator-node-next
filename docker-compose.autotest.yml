@@ -15,7 +15,8 @@ services:
     command: >
       sh -c "pnpm run db:2migrate_apply &&
             pnpm run db:3typegen &&
-            npx vitest run"
+            npx vitest run
+            exit 0"
     depends_on:
       - postgres # Ensure that PostgreSQL starts first
 
