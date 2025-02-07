@@ -25,6 +25,23 @@ This app is built using Python Django (frontend not implemented yet).
   ```
 - Some issues like "CANCELLED" might occure do to low disk space, so make sure to free up some space
 
+## To use vscode debugger
+
+- run docker compose
+- add some breakpoints - preferably api route code
+- open "run and debug" (ctrl+shift+d)
+- start "Attach to node_backend"
+- make request and see debugger reach the breakpoint
+- afterwards you can either continue (f5) or go step by step and see variables that are set
+
+## Automated tests
+
+- To run automated tests on docker
+  ```bash
+    docker compose up --build -v # start docker compose
+    docker compose exec node_backend pnpm run test # run tests on the container (might conflict with though - review this later)
+  ```
+
 ## ESLint
 
 - Used for code suggestions and to enforce code style

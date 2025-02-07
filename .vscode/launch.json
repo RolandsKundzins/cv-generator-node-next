@@ -1,3 +1,15 @@
 {
-
+  "configurations": [
+    {
+      "name": "Attach to node_backend",
+      "type": "node",
+      "request": "attach",
+      "port": 9229, // defined in node_backend/package.json -> dev script and docker-compose.yml
+      "address": "localhost",
+      "localRoot": "${workspaceFolder}/node_backend",
+      "remoteRoot": "/app", // adjust to match your container’s WORKDIR, if using Docker
+      "restart": true,
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ]
 }
