@@ -2,7 +2,7 @@
   "_COMMENT1": "DO NOT INSTALL DEPENDENCIES HERE. INSTEAD, INSTALL THEM IN APPROPRIATE FOLDERS (NODE_BACKEND, NEXTJS_FRONTEND...)",
   "_COMMENT2": "VITEST IS ADDED HERE FOR VITEST EXTENSION TO PICK UP",
   "scripts": {
-    "test": "vitest run"
+    "test": "vitest"
   },
   "dependencies": {
     "vitest": "^3.0.5"

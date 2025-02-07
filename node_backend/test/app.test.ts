@@ -1,5 +1,5 @@
 import { describe, expect, it, test } from 'vitest';
-import { sum, getUsers } from '../src/services/UserServices';
+import { getUsers, sum } from '../src/services/UserServices';
 
 test('adds 1 + 2 to equal 3', () => {
   expect(sum(1, 2)).toBe(3);

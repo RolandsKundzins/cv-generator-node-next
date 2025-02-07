@@ -31,13 +31,8 @@ jobs:
       - name: Set up Docker Compose
         run: docker compose up -d --build
 
-      - name: Wait for services to be ready
-        run: |
-          echo "Waiting for services..."
-          sleep 10
-
       - name: Run Tests for node_backend container
-        run: docker compose exec -T node_backend pnpm run test
+        run: docker compose exec -T node_backend npx vitest run
 
       - name: Stop Docker Containers
-        run: docker compose down -v
+        run: docker compose down
