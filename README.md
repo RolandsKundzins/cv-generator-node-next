@@ -11,7 +11,7 @@ This app is built using Python Django (frontend not implemented yet).
   ```
 - run docker
   ```
-  docker compose up --build
+  docker compose up --build --renew-anon-volumes
   ```
 
 ## Docker
