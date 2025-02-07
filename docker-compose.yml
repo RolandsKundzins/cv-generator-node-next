@@ -8,7 +8,6 @@ services:
       - ./node_backend/.env
     ports:
       - 3000:3000
-      - 9229:9229 # remove this line if you don't want to debug the app
     volumes:
       - ./node_backend:/app # Mount the local backend code into the container (for live reload in dev)
       - /app/node_modules
