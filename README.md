@@ -9,9 +9,9 @@ This app is built using Python Django (frontend not implemented yet).
   ```bash
   pnpm install
   ```
-- run docker
+- run docker (This command should be improved)
   ```
-  docker compose up --build --renew-anon-volumes
+  docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build --renew-anon-volumes
   ```
 
 ## Docker
@@ -41,6 +41,8 @@ This app is built using Python Django (frontend not implemented yet).
     docker compose up --build -v # start docker compose
     docker compose exec node_backend pnpm run test # run tests on the container (might conflict with though - review this later)
   ```
+- This runs in watch mode, so any changes you make in the code will automatically update the test results.
+- You could use `docker.compose.autotest.yml`, but that doesn't feature watch mode, so you would have to rebuild and re-up the container each time.
 
 ## ESLint
 

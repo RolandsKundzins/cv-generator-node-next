@@ -3,4 +3,4 @@ services:
     command: >
       sh -c "pnpm run db:2migrate_apply &&
             pnpm run db:3typegen &&
-            npx vitest run"
+            pnpm run dev"

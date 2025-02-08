@@ -12,10 +12,7 @@ services:
     volumes:
       - ./node_backend:/app # Mount the local backend code into the container (for live reload in dev)
       - /app/node_modules
-    command: >
-      sh -c "pnpm run db:2migrate_apply &&
-            pnpm run db:3typegen &&
-            pnpm run dev"
+
     depends_on:
       - postgres # Ensure that PostgreSQL starts first
 

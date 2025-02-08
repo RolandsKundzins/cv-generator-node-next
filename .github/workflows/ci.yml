@@ -9,6 +9,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     services:
       docker:
@@ -19,8 +20,8 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Docker Compose
-        run: docker compose -f docker-compose.autotest.yml up --build
+      - name: Set up Docker Compose and run tests
+        run: docker compose -f docker-compose.yml -f docker-compose.autotest.yml up --build --abort-on-container-exit
 
       - name: Stop Docker Containers
         run: docker compose down -v
