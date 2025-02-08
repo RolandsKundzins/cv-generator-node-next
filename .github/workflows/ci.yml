@@ -23,7 +23,7 @@ jobs:
       - name: Set up Docker Compose and run tests
         run: docker compose -f docker-compose.yml -f docker-compose.autotest.yml up --build --abort-on-container-exit
 
-      - name: Run ESLint in container
+      - name: Run ESLint in node_backend container
         run: docker compose run --rm node_backend pnpm run lint
 
       - name: Stop Docker Containers

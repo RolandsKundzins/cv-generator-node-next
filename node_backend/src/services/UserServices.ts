@@ -5,6 +5,5 @@ export const getUsers = async () => {
 };
 
 export function sum(a: number, b: number) {
-  const c = undefined;
   return a + b;
 }
