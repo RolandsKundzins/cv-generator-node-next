@@ -1,10 +1,11 @@
-# Use an official Node.js runtime as a parent image
-FROM node:latest
+# Slim has smaller image size (almost 3x smaller), but you may need to install additional dependecies like openssl bellow
+FROM node:23-slim
 
 # Set the working directory in the container
 WORKDIR /app
 
-RUN npm install npm@latest
+# Install OpenSSL and any other required system dependencies
+RUN apt-get update && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
 
 # Install pnpm globally
 RUN corepack enable && corepack prepare pnpm@latest --activate
