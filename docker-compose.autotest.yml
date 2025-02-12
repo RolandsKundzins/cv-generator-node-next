@@ -1,4 +1,5 @@
-# in the future, this should be more equivalent to production setup instead of dev setup
+# TODO: in the future, this should be more equivalent to production setup instead of dev setup
+# I dont think it a good idea to mount /app in production setup - instead just copying the code into the container
 
 services:
   node_backend:
