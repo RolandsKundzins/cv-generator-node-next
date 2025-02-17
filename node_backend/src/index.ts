@@ -1,11 +1,11 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import express from 'express';
+import express, { Express } from 'express';
 import apiRoutes from './routes/apiRoutes.js'; // Import your routes
 
 // Create an Express application
-const app = express();
+const app: Express = express();
 
 // Use the imported routes
 app.use(apiRoutes); // This will handle all your routes
@@ -19,6 +19,11 @@ if (port === undefined) {
 }
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`);
+  });
+}
+
+// Export the app for testing
+export default app;
