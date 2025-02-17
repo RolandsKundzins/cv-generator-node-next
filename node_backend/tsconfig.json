@@ -24,7 +24,7 @@
     "declarationMap": true,
     "composite": true,
 
-    "typeRoots": ["./node_modules/@types"]
+    "typeRoots": ["./node_modules/@types", "./src/db/db.d.ts"]
   },
   "include": ["src/**/*"], // Include all files in the src directory
   "exclude": [
