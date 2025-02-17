@@ -38,11 +38,10 @@ This app is built using Python Django (frontend not implemented yet).
 
 - To run automated tests on docker
   ```bash
-    docker compose up --build -v # start docker compose
-    docker compose exec node_backend pnpm run test # run tests on the container (might conflict with though - review this later)
+    docker-compose -f docker-compose.yml -f docker-compose.local.autotest.yml up --build --renew-anon-volumes
   ```
 - This runs in watch mode, so any changes you make in the code will automatically update the test results.
-- You could use `docker.compose.autotest.yml`, but that doesn't feature watch mode, so you would have to rebuild and re-up the container each time.
+- You could use `docker.compose.ga.autotest.yml`, but that doesn't feature watch mode, so you would have to rebuild and re-up the container each time.
 
 ## ESLint
 
@@ -69,15 +68,11 @@ This app is built using Python Django (frontend not implemented yet).
 
 ### Migrations
 
-- When you make a change in schema.prisma (new table/column etc.), you need to generate a migration and apply it to the database. This can be done with the following commands:
-
+- When you make a change in schema.prisma (new table/column etc.), you need to generate a migration:
   ```bash
     pnpm run db:1migrate_create # creates the migration files in node_backend/prisma/migrations. Check before applying.
-
-    docker compose up --build # This includes commands for applying migrations to the database in docker
-
-    pnpm run db:3typegen # Generates typescript types for the kysely database schema
   ```
+- The migration is automatically applied to database during startup.
 
 ## Kysely
 
