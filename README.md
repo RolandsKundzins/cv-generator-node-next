@@ -10,8 +10,9 @@ This app is built using Python Django (frontend not implemented yet).
   pnpm install
   ```
 - run docker (This command should be improved)
-  ```
-  docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build --renew-anon-volumes
+  ```bash
+  docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build --renew-anon-volumes # for deve mode or ...
+  docker-compose -f docker-compose.yml -f docker-compose.local.autotest.yml up --build --renew-anon-volumes
   ```
 
 ## Docker

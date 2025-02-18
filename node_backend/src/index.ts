@@ -2,13 +2,16 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import express, { Express } from 'express';
-import apiRoutes from './routes/apiRoutes.js'; // Import your routes
+import api_routes from './routes/apiRoutes.js'; // Import your routes
+import user_routes from './routes/userRoutes.js';
 
 // Create an Express application
 const app: Express = express();
+app.use(express.json()); // This will parse JSON bodies
 
 // Use the imported routes
-app.use(apiRoutes); // This will handle all your routes
+app.use(api_routes);
+app.use('/users', user_routes);
 
 // Get port from the environment variable
 const port = process.env.PORT;
