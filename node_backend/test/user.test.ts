@@ -12,7 +12,7 @@ describe('GET /users', () => {
 });
 
 describe('POST /users', () => {
-  it('should create a new user', async () => {
+  it('create new user and get user by id', async () => {
     // create a new user
     const newUser = {
       email: `john.doe.${Date.now()}@example.com`,
@@ -26,8 +26,19 @@ describe('POST /users', () => {
     const getUserResponse = await request(app).get(`/users/${response.body.id}`);
     expect(getUserResponse.status).toBe(200);
     expect(getUserResponse.body).toMatchObject({
-      ...newUser,
       id: Number(response.body.id),
+      ...newUser,
     });
+  });
+
+  it('should return 400 for invalid user data (empty name)', async () => {
+    // create a new user with invalid data
+    const invalidUser = {
+      email: `john.doe.${Date.now()}@example.com`,
+      name: '',
+    };
+    const response = await request(app).post('/users').send(invalidUser);
+    expect(response.status).toBe(400);
+    expect(response.body).toHaveProperty('message', 'Validation error');
   });
 });
