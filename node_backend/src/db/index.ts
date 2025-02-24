@@ -1,6 +1,6 @@
 import { Kysely, PostgresDialect } from 'kysely';
 import pg from 'pg';
-import { DB } from 'kysely-codegen';
+import { DB } from '../db/db.d.js';
 
 const pool = new pg.Pool({
   connectionString: process.env.DATABASE_URL,

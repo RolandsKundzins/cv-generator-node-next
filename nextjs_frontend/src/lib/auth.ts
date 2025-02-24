@@ -1,4 +1,4 @@
-import NextAuth from "next-auth";
+import NextAuth, { DefaultSession } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import GitHub from "next-auth/providers/github";
 
@@ -11,13 +11,26 @@ export const { auth, handlers, signIn } = NextAuth({
         password: {},
       },
       authorize: async (credentials) => {
-        const email = "admin@admin.com";
-        const password = "1234";
+        console.log("authorize function");
+        try {
+          const res = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                email: credentials?.email,
+                password: credentials?.password,
+              }),
+            }
+          );
 
-        if (credentials.email === email && credentials.password === password) {
-          return { email, password };
-        } else {
-          throw new Error("Invalid credentials");
+          if (!res.ok) throw new Error("Invalid credentials");
+          const res_data = await res.json();
+          return res_data; // This gets stored in the session
+        } catch (error) {
+          console.warn("Error in authorize function:", error);
+          throw new Error("Login failed");
         }
       },
     }),

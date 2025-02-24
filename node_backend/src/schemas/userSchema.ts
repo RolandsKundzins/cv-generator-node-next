@@ -6,5 +6,5 @@ export const getUserSchema = z.object({
 
 export const newUserSchema = z.object({
   email: z.string().email(),
-  name: z.string().min(1, 'Name is required'),
+  password: z.string(), // TODO: add password min max and stuff
 });
